@@ -1,0 +1,60 @@
+﻿@model IEnumerable<e_commerce.Models.M_Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a class="btn btn-primary  btn-lg" href="@Url.Action("Create","M_Product")" >Add New Product</a>
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+           Product Name
+        </th>
+        <th>
+           Product Description
+        </th>
+        <th>
+          Product Picture
+        </th>
+        <th>
+            Sale Price
+        </th>
+        <th>
+            Puchase Price
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.M_Category.Category_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product_Description)
+        </td>
+        <td>
+            <img height="75px" width="75px" src="@Url.Content(item.Product_Picture)"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product_SalePrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product_PuchasePrice)
+        </td>
+        <td>
+            <a class="btn btn-danger glyphicon glyphicon-edit " href="@Url.Action("Edit","M_Product",new { id=item.Product_ID })"></a>
+            <a class="btn btn-success glyphicon glyphicon-book " href="@Url.Action("Details","M_Product",new { id=item.Product_ID })"></a>
+            <a class="btn btn-warning glyphicon glyphicon-trash " href="@Url.Action("Delete","M_Product",new { id=item.Product_ID })"></a>
+        </td>
+    </tr>
+}
+
+</table>

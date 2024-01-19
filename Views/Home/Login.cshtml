@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layoutuser.cshtml";
+}
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    <center>
+
+        <table border="1" width="50%">
+            <tr> <td colspan="2" style="color:orangered; font-size:larger"> Admin Login Menu</td> </tr>
+
+            <tr><td>Email:</td>    <td><input type="text" name"Admin_Email" /></td> </tr>
+            <tr><td>Password:</td> <td><input type="text" name"Admin_Password" /></td> </tr>
+
+            <tr> <td colspan="2"><input type="submit" value="SUBMIT" /></td></tr>
+
+            <tr><td colspan="2" style="color:red; font-size:larger"> @ViewBag.Message </td></tr>
+
+        </table>
+
+    </center>
+}
